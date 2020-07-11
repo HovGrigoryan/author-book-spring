@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Add Author
+<form action="addAuthor" method="post">
+    <input type="text" name="name"   placeholder="Please input name"/><br>
+    <input type="text" name="surname" placeholder="Please input surname"/><br>
+    <input type="text" name="email" placeholder="Please input email"/><br>
+    Gender: <br> MALE <input type="radio" value="MALE" name="gender">
+    FEMALE <input type="radio" value="FEMALE" name="gender"><br>
+    <textarea name="bio" placeholder="please input Bio"></textarea>
+    <input type="submit" value="addAuthor">
+</form>
+<br>
+<br>
+<br>
+Add Book
+<form action="addBook" method="post">
+    <input type="text" name="title" placeholder="Please input title"><br>
+    <textarea name="Description" placeholder="Please input Description"></textarea><br>
+    <input type="number" name="price" placeholder="Please input price"> <br>
+    <select name="authorId">
+        <option th:each="author:${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+    </select>
+    <input type="submit" value="addBook">
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="/author"> All Authors</a><br>
+    <a href="/book"> All Books</a>
+</form>
+</body>
+</html>

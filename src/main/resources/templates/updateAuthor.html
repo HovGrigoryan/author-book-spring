@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/updateAuthor" method="post">
+    <input type="number" name="name" th:value="${authorById.id}" disabled/><br>
+    <input type="text" name="name" th:value="${authorById.name}"/><br>
+    <input type="text" name="surname" th:value="${authorById.surname}"/><br>
+    <input type="text" name="email" th:value="${authorById.email}"/><br>
+    <div th:if="${authorById.gender.name() == 'MALE'}" th:remove="tag">
+        Gender: <br> MALE <input type="radio" checked value="MALE" name="gender">
+        FEMALE <input type="radio" value="FEMALE" name="gender"><br>
+    </div>
+    <div th:if="${authorById.gender.name() == 'FEMALE'}" th:remove="tag">
+        Gender: <br> MALE <input type="radio"  value="MALE" name="gender">
+        FEMALE <input type="radio" checked value="FEMALE" name="gender"><br>
+    </div>
+    <textarea name="bio" th:text="${authorById.bio}"></textarea>
+    <input type="submit" value="updateAuthor">
+
+</form>
+
+</body>
+</html>
